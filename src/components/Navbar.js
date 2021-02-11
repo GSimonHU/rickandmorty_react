@@ -2,10 +2,17 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div>
-            <Link to="/">Main</Link>
-            <Link to="/characters">Characters</Link>
-            <Link to="/locations">Locations</Link>
+        <div className="navbar">
+            <span className="navBarBrand">Rick&Morty</span>
+            <Link className="navBarComponent" to="/">
+                Main
+            </Link>
+            <Link className="navBarComponent" to="/characters">
+                Characters
+            </Link>
+            <Link className="navBarComponent" to="/locations">
+                Locations
+            </Link>
         </div>
     );
 };

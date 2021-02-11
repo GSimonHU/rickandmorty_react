@@ -5,9 +5,9 @@ import Navbar from "./components/Navbar";
 function App() {
     return (
         <Router>
-            <div>
+            <div className="container">
                 <Navbar />
-                <h1>Rock & Morty React App</h1>
+                <h1 className="header">Rock & Morty React App</h1>
                 <Route
                     exact
                     path="/"

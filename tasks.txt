@@ -1,10 +1,21 @@
 Routes:
-1. GetCharacters
-2. Display Character Info
-3. Get Locations
+1. GetCharacters (name, image, link to character card)
+2. Display Character Info (name, image, status, species, gender)
+3. Get Locations (name, type, dimension, residents(Link))
 
 + features
 change style
 
 
 https://rickandmortyapi.com/documentation/#rest
+
+
+Backlog
+1. Create App skeleton, navbar, routes
+2. GetCharacters front-end, Character components
+3. GetCharacters back-end
+4. Display Character Info front-end
+5. Display Character Info back-end
+6. Get location front-end
+7. Get location back-end
+8. Change style

@@ -1,0 +1,10 @@
+Routes:
+1. GetCharacters
+2. Display Character Info
+3. Get Locations
+
++ features
+change style
+
+
+https://rickandmortyapi.com/documentation/#rest

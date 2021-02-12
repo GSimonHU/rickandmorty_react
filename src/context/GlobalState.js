@@ -4,8 +4,8 @@ import axios from "axios";
 
 const initialState = {
     characters: [],
+    character: null,
     error: null,
-    loading: true,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -25,7 +25,24 @@ export const GlobalProvider = ({ children }) => {
         } catch (err) {
             dispatch({
                 type: "CHARACTERS_ERROR",
-                payload: err.response.data.error,
+                payload: err,
+            });
+        }
+    }
+
+    async function getCharacter(id) {
+        try {
+            const res = await axios.get(
+                `https://rickandmortyapi.com/api/character/${id}`
+            );
+            dispatch({
+                type: "GET_CHARACTER",
+                payload: res.data,
+            });
+        } catch (err) {
+            dispatch({
+                type: "CHARACTER_ERROR",
+                payload: err,
             });
         }
     }
@@ -33,10 +50,11 @@ export const GlobalProvider = ({ children }) => {
     return (
         <GlobalContext.Provider
             value={{
+                character: state.character,
                 characters: state.characters,
                 error: state.error,
-                loading: state.loading,
                 getCharacters,
+                getCharacter,
             }}
         >
             {children}

@@ -3,8 +3,17 @@ export default (state, action) => {
         case "GET_CHARACTERS":
             return {
                 ...state,
-                loading: false,
                 characters: action.payload,
+            };
+        case "GET_CHARACTER":
+            return {
+                ...state,
+                character: action.payload,
+            };
+        case "CHARACTER_ERROR":
+            return {
+                ...state,
+                error: action.payload,
             };
         case "CHARACTERS_ERROR":
             return {

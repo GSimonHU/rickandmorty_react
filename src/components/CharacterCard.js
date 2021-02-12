@@ -1,11 +1,11 @@
-import CardElement from "../elements/CardElement";
+import { Link } from "react-router-dom";
 
 const CharacterCard = ({ character }) => {
     return (
         <div className="characterCard">
             <img src={character.image} alt="" />
             <h1>{character.name}</h1>
-            <a href={character.url}>Click for more info</a>
+            <Link to={`/characters/${character.id}`}>Click for more info</Link>
         </div>
     );
 };

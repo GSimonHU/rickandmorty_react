@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
+import CharacterDetails from "./components/CharacterDetails";
 
 function App() {
     return (
@@ -22,6 +23,11 @@ function App() {
                     exact
                     path="/characters"
                     render={() => <CharacterList />}
+                />
+                <Route
+                    exact
+                    path="/characters/:id"
+                    render={() => <CharacterDetails />}
                 />
                 <Route
                     exact

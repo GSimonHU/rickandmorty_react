@@ -5,6 +5,7 @@ Routes:
 
 + features
 change style
+favorit characters
 
 
 https://rickandmortyapi.com/documentation/#rest

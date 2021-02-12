@@ -1,0 +1,21 @@
+.cardContainer {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(3, auto);
+    align-content: start;
+}
+
+.characterCard {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    border: solid 2px white;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+.characterCard img {
+    grid-row: span 2;
+    width: 10rem;
+}

@@ -6,7 +6,7 @@ const Favorites = ({ favorites, removeFavorite }) => {
     let content = null;
 
     if (favorites.length === 0) {
-        content = <div>No favorit characters added yet</div>;
+        content = <div>No favorite characters added yet</div>;
     } else {
         content = (
             <div className="cardContainer">

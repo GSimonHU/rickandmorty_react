@@ -1,22 +1,26 @@
-import React, { useContext, useEffect } from "react";
-
-import { GlobalContext } from "../context/GlobalState";
+import { useHttp } from "../custom_hooks/http";
 
 import CharacterCard from "./CharacterCard";
 import "../style/Characters.css";
 const CharacterList = () => {
-    const { characters, getCharacters } = useContext(GlobalContext);
-    useEffect(() => {
-        getCharacters();
-    }, []);
+    let data = useHttp("https://rickandmortyapi.com/api/character", []);
+    let characters = null;
+    if (data) {
+        characters = data.results;
+    }
 
-    return (
-        <div className="cardContainer">
-            {characters.map((character) => (
-                <CharacterCard key={character.id} character={character} />
-            ))}
-        </div>
-    );
+    let content = <p>Loading Characters...</p>;
+
+    if (characters) {
+        content = (
+            <div className="cardContainer">
+                {characters.map((character) => (
+                    <CharacterCard key={character.id} character={character} />
+                ))}
+            </div>
+        );
+    }
+    return content;
 };
 
 export default CharacterList;

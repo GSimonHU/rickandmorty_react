@@ -1,20 +1,31 @@
-import React, { useContext, useEffect } from "react";
-import { GlobalContext } from "../context/GlobalState";
 import { useParams } from "react-router-dom";
-import CharacterDetailCard from "../components/CharacterDetailCard";
+import { useHttp } from "../custom_hooks/http";
 
 const CharacterDetails = () => {
-    const { character, getCharacter } = useContext(GlobalContext);
     const { id } = useParams();
-    useEffect(() => {
-        getCharacter(id);
-    }, []);
+    let data = useHttp(`https://rickandmortyapi.com/api/character/${id}`, []);
+    let character = null;
+    if (data) {
+        character = data;
+    }
 
-    return (
-        <>
-            <CharacterDetailCard character={character} />
-        </>
-    );
+    let content = <p>Loading Character...</p>;
+
+    if (character) {
+        content = (
+            <>
+                <img src={character.image} alt="" />
+                <div>
+                    <div>{character.name}</div>
+                    <div>{character.gender}</div>
+                    <div>{character.location.name}</div>
+                    <div>{character.species}</div>
+                    <div>{character.status}</div>
+                </div>
+            </>
+        );
+    }
+    return content;
 };
 
 export default CharacterDetails;

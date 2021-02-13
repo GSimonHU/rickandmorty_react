@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CharacterCardElement from "../elements/CharacterCardElement";
+import FavoriteBtn from "../elements/FavoriteBtn";
 
 const FavoritCard = ({ character, removeFavorite }) => {
     return (
-        <div className="characterCard">
-            <img src={character.image} alt="" />
+        <CharacterCardElement>
+            <img src={character.image} alt="" className="characterImage" />
             <h1>{character.name}</h1>
             <Link to={`/characters/${character.id}`}>Click for more info</Link>
-            <button onClick={() => removeFavorite(character.id)}>
+            <FavoriteBtn onClick={() => removeFavorite(character.id)}>
                 Remove from Favorites
-            </button>
-        </div>
+            </FavoriteBtn>
+        </CharacterCardElement>
     );
 };
 

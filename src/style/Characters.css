@@ -1,31 +1,4 @@
-.cardContainer {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: repeat(3, auto);
-    align-content: start;
-}
-
-.characterCard {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto auto;
-    border: solid 2px white;
-    padding: 1em;
-    border-radius: 20px;
-}
-
-.characterCard img {
+.characterImage {
     grid-row: span 3;
     width: 10rem;
-}
-
-.characterCard button {
-    background-color: white;
-    border: none;
-    border-radius: 10px;
-    color: black;
-    font-weight: bold;
-    width: 100px;
-    cursor: pointer;
 }

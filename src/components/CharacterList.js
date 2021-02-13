@@ -2,6 +2,9 @@ import { useHttp } from "../custom_hooks/http";
 
 import CharacterCard from "./CharacterCard";
 import "../style/Characters.css";
+
+import CardContainer from "../elements/CardContainer";
+
 const CharacterList = ({ addToFavorites }) => {
     let data = useHttp("https://rickandmortyapi.com/api/character", []);
     let characters = null;
@@ -13,7 +16,7 @@ const CharacterList = ({ addToFavorites }) => {
 
     if (characters) {
         content = (
-            <div className="cardContainer">
+            <CardContainer>
                 {characters.map((character) => (
                     <CharacterCard
                         key={character.id}
@@ -21,7 +24,7 @@ const CharacterList = ({ addToFavorites }) => {
                         addToFavorites={addToFavorites}
                     />
                 ))}
-            </div>
+            </CardContainer>
         );
     }
     return content;

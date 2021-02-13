@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
+import CharacterCardElement from "../elements/CharacterCardElement";
+import FavoriteBtn from "../elements/FavoriteBtn";
 
 const CharacterCard = ({ character, addToFavorites }) => {
     return (
-        <div className="characterCard">
-            <img src={character.image} alt="" />
+        <CharacterCardElement>
+            <img src={character.image} alt="" className="characterImage" />
             <h1>{character.name}</h1>
             <Link to={`/characters/${character.id}`}>Click for more info</Link>
-            <button onClick={() => addToFavorites(character)}>
+            <FavoriteBtn onClick={() => addToFavorites(character)}>
                 Add to Favorites
-            </button>
-        </div>
+            </FavoriteBtn>
+        </CharacterCardElement>
     );
 };
 

@@ -1,5 +1,8 @@
 import React from "react";
 import FavoritCard from "./FavoritCard";
+
+import CardContainer from "../elements/CardContainer";
+
 import "../style/Characters.css";
 
 const Favorites = ({ favorites, removeFavorite }) => {
@@ -9,7 +12,7 @@ const Favorites = ({ favorites, removeFavorite }) => {
         content = <div>No favorite characters added yet</div>;
     } else {
         content = (
-            <div className="cardContainer">
+            <CardContainer>
                 {favorites.map((character) => (
                     <FavoritCard
                         key={character.id}
@@ -17,7 +20,7 @@ const Favorites = ({ favorites, removeFavorite }) => {
                         removeFavorite={removeFavorite}
                     />
                 ))}
-            </div>
+            </CardContainer>
         );
     }
 

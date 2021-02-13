@@ -13,7 +13,7 @@ const CharacterDetails = () => {
 
     if (character) {
         content = (
-            <>
+            <div>
                 <img src={character.image} alt="" />
                 <div>
                     <div>{character.name}</div>
@@ -22,7 +22,7 @@ const CharacterDetails = () => {
                     <div>{character.species}</div>
                     <div>{character.status}</div>
                 </div>
-            </>
+            </div>
         );
     }
     return content;

@@ -3,13 +3,25 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
 import CharacterDetails from "./components/CharacterDetails";
+import Favorites from "./components/Favorites";
+import { useState } from "react";
 
 function App() {
+    const [favorites, setFavorites] = useState([]);
+
+    const addToFavorites = (character) => {
+        setFavorites([...favorites, character]);
+    };
+
+    const removeFavorite = (id) => {
+        setFavorites(favorites.filter((char) => char.id !== id));
+    };
+
     return (
         <Router>
             <div className="container">
                 <Navbar />
-                <h1 className="header">Rock & Morty React App</h1>
+                <h1 className="header">Rick & Morty React App</h1>
                 <Route
                     exact
                     path="/"
@@ -22,7 +34,9 @@ function App() {
                 <Route
                     exact
                     path="/characters"
-                    render={() => <CharacterList />}
+                    render={() => (
+                        <CharacterList addToFavorites={addToFavorites} />
+                    )}
                 />
                 <Route
                     exact
@@ -31,8 +45,13 @@ function App() {
                 />
                 <Route
                     exact
-                    path="/locations"
-                    render={() => <h3>This will be the locations route</h3>}
+                    path="/favorites"
+                    render={() => (
+                        <Favorites
+                            favorites={favorites}
+                            removeFavorite={removeFavorite}
+                        />
+                    )}
                 />
             </div>
         </Router>

@@ -10,8 +10,8 @@ const Navbar = () => {
             <Link className="navBarComponent" to="/characters">
                 Characters
             </Link>
-            <Link className="navBarComponent" to="/locations">
-                Locations
+            <Link className="navBarComponent" to="/favorites">
+                Favorites
             </Link>
         </div>
     );

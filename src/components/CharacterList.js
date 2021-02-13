@@ -2,7 +2,7 @@ import { useHttp } from "../custom_hooks/http";
 
 import CharacterCard from "./CharacterCard";
 import "../style/Characters.css";
-const CharacterList = () => {
+const CharacterList = ({ addToFavorites }) => {
     let data = useHttp("https://rickandmortyapi.com/api/character", []);
     let characters = null;
     if (data) {
@@ -15,7 +15,11 @@ const CharacterList = () => {
         content = (
             <div className="cardContainer">
                 {characters.map((character) => (
-                    <CharacterCard key={character.id} character={character} />
+                    <CharacterCard
+                        key={character.id}
+                        character={character}
+                        addToFavorites={addToFavorites}
+                    />
                 ))}
             </div>
         );

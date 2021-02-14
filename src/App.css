@@ -5,12 +5,6 @@
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: coral;
-    color: #fff;
-}
-
-.container {
-    margin: 0% 5%;
 }
 
 .navbar {
@@ -24,6 +18,7 @@
 }
 
 .navBarComponent {
+    color: #fff;
     padding: 2% 4%;
     text-decoration: none;
 }

@@ -4,6 +4,9 @@ import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
 import CharacterDetails from "./components/CharacterDetails";
 import Favorites from "./components/Favorites";
+
+import AppContainer from "./elements/AppContainer";
+
 import { useState } from "react";
 
 function App() {
@@ -19,7 +22,7 @@ function App() {
 
     return (
         <Router>
-            <div className="container">
+            <AppContainer>
                 <Navbar />
                 <h1 className="header">Rick & Morty React App</h1>
                 <Route
@@ -53,7 +56,7 @@ function App() {
                         />
                     )}
                 />
-            </div>
+            </AppContainer>
         </Router>
     );
 }

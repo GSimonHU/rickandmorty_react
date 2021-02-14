@@ -1,16 +1,22 @@
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ToggleBtn from "./components/ToggleBtn";
 import CharacterList from "./components/CharacterList";
 import CharacterDetails from "./components/CharacterDetails";
 import Favorites from "./components/Favorites";
 
 import AppContainer from "./elements/AppContainer";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 
-function App() {
+import { ThemeContext } from "./context/ThemeContext";
+import AppContainerTheme from "./context/Theme";
+
+const App = () => {
     const [favorites, setFavorites] = useState([]);
+    const theme = useContext(ThemeContext)[0];
+    const currentTheme = AppContainerTheme[theme];
 
     const addToFavorites = (character) => {
         setFavorites([...favorites, character]);
@@ -22,9 +28,10 @@ function App() {
 
     return (
         <Router>
-            <AppContainer>
+            <AppContainer currentTheme={currentTheme}>
                 <Navbar />
                 <h1 className="header">Rick & Morty React App</h1>
+                <ToggleBtn />
                 <Route
                     exact
                     path="/"
@@ -59,6 +66,6 @@ function App() {
             </AppContainer>
         </Router>
     );
-}
+};
 
 export default App;

@@ -1,0 +1,10 @@
+node_modules
+build
+.dockerignore
+Dockerfile
+Dockerfile.prod
+.github
+netlify.toml
+Procfile
+tasks.txt
+README.md
